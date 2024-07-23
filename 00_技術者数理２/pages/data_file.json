@@ -1,0 +1,50 @@
+{
+    "diff":{
+            "a":"0",
+            "x^a":"ax^{a-1}",
+            "e^x":"e^x",
+            "a^x":"a^x \\ln a",
+            "\\ln|x|":"\\frac{1}{x}",
+            "\\sin x":"\\cos x",
+            "\\cos x":"-\\sin x",
+            "\\tan x":"\\frac{1}{\\cos^2 x}\\ {\\rm or}\\ \\sec^2 x",
+            "\\sin^{-1} x":"\\frac{1}{\\sqrt{1-x^2}}",
+            "\\cos^{-1} x":"-\\frac{1}{\\sqrt{1-x^2}}",
+            "\\tan^{-1} x":"\\frac{1}{1+x^2}}"
+    }
+    ,
+    "indefinite_integral":{
+                "fun01":"3*x**2",
+                "fun02":"2*x+3*x**2",
+                "fun03":"x**2/(1+x**2)",
+                "fun04":"(3*x-1)**(7)",
+                "fun05":"1/(1+x**2)"
+    }
+    ,
+    "definite_integral":{
+                "Q001":{ "fun":"3*x**2","initial":0,"final":3},
+                "Q002":{ "fun":"2*x+1","initial":-1,"final":2},
+                "Q003":{ "fun":"2*x+1","initial":0,"final":1},
+                "Q004":{ "fun":"x**2+x","initial":1,"final":3},
+                "Q005":{ "fun":"sqrt(2*x-1)","initial":1,"final":5},
+                "Q006":{ "fun":"(3*x+1)**5","initial":-1,"final":2}
+    }
+    ,
+    "summation":{
+            "ak1":"k",
+            "ak2":"k**2",
+            "ak3":"k**3",
+            "ak4":"k*(2*k+1)*(2*k-1)",
+            "ak5":"(k+1)*(2*k-1)",
+            "ak6":"3*k**2/n**3-4*k/n**2+5/n",
+            "ak7":"(1+2*k/n)**2-4*(1+2*k/n)+7",
+            "ak8":"k*(k+1)**2/(n**4)",
+            "ak9":"8*k*(k-1)*(k+1)/(n**4)",
+            "ak10":"-n+2*k"
+    }
+    ,
+    "composition_function":{
+        "Q001":{"fun0":"sqrt(3*x+5)","fun1":"sqrt(u)","fun2":"3*x+5"},
+        "Q002":{"fun0":"sqrt(2*x-3)**(1/2)","fun1":"sqrt(u)","fun2":"2*x-3"}
+    }
+}
