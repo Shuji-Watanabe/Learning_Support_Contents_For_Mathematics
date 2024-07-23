@@ -45,10 +45,10 @@ with st.expander("Latex コード"):
 
 st.write("積分後の関数(デフォルト)")
 Ans_f_form = sy.Integral(fun_sym,x) 
-Ans_f_form_latex = sy.latex(Ans_f_form)
+Ans_f_form_latex = sy.latex(Ans_f_form).replace("\\log{\\left(e \\right)}","")
 
 Ans_f = Ans_f_form.doit()
-Ans_f_latex = sy.latex(Ans_f)
+Ans_f_latex = sy.latex(Ans_f).replace("\\log{\\left(e \\right)}","")
 st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_latex}+C$")
 with st.expander("Latex コード(デフォルト)"):
     st.write("\"",Ans_f_latex,"+C\"")
@@ -65,11 +65,11 @@ if st.checkbox("置換積分"):
             relation_str = st.text_input("$tと置き換える式$",value="3*x-1")
             relation_sym = sy.sympify(relation_str)
     Ans_f_new = Ans_f_form.transform(relation_sym ,new_value_sym)
-    Ans_f_new_latex = sy.latex(Ans_f_new)
+    Ans_f_new_latex = sy.latex(Ans_f_new).replace("\\log{\\left(e \\right)}","")
     Ans_f_new_done = Ans_f_new.doit()
-    Ans_f_new_done_latex = sy.latex(Ans_f_new_done)
+    Ans_f_new_done_latex = sy.latex(Ans_f_new_done).replace("\\log{\\left(e \\right)}","")
     Ans_f_replaced = Ans_f_new_done.replace(new_value_sym,relation_sym)
-    Ans_f_latex = sy.latex(Ans_f_replaced)
+    Ans_f_latex = sy.latex(Ans_f_replaced).replace("\\log{\\left(e \\right)}","")
     st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_new_latex  }={Ans_f_new_done_latex }={Ans_f_latex}+C$")
     with st.expander("Latex コード(デフォルト)"):
         st.write("\"",Ans_f_latex,"+C\"")
@@ -88,7 +88,7 @@ if st.checkbox("計算結果の表示変更"):
     elif select_radio2 == "その他":
         Ans_f_simplify = sy.powsimp(Ans_f)
 
-    Ans_f_simplify_latex = sy.latex(Ans_f_simplify) 
+    Ans_f_simplify_latex = sy.latex(Ans_f_simplify).replace("\\log{\\left(e \\right)}","")
 
     st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_simplify_latex }+C$")
     with st.expander("Latex コード(簡略化)"):

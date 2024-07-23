@@ -18,7 +18,15 @@
                 "fun02":"2*x+3*x**2",
                 "fun03":"x**2/(1+x**2)",
                 "fun04":"(3*x-1)**(7)",
-                "fun05":"1/(1+x**2)"
+                "fun05":"1/(1+x**2)",
+                "fun06":"2/(1+x**2)",
+                "fun07":"3*x**2 - 1/x**2",
+                "fun08":"x**(1/3)",
+                "fun09":"(3*x**3-2*x-1)/x",
+                "fun10":"e**(2*x+7)",
+                "fun11":"sin(3*x-1)",
+                "fun12":"cos(3*x-1)",
+                "fun13":"-2/(1+x**2)"
     }
     ,
     "definite_integral":{
@@ -27,7 +35,8 @@
                 "Q003":{ "fun":"2*x+1","initial":0,"final":1},
                 "Q004":{ "fun":"x**2+x","initial":1,"final":3},
                 "Q005":{ "fun":"sqrt(2*x-1)","initial":1,"final":5},
-                "Q006":{ "fun":"(3*x+1)**5","initial":-1,"final":2}
+                "Q006":{ "fun":"(3*x+1)**5","initial":-1,"final":2},
+                "Q007":{ "fun":"2*x-6*x**3","initial":-1,"final":3}
     }
     ,
     "summation":{
@@ -45,6 +54,12 @@
     ,
     "composition_function":{
         "Q001":{"fun0":"sqrt(3*x+5)","fun1":"sqrt(u)","fun2":"3*x+5"},
-        "Q002":{"fun0":"sqrt(2*x-3)**(1/2)","fun1":"sqrt(u)","fun2":"2*x-3"}
+        "Q002":{"fun0":"e**(2*x)","fun1":"e**u","fun2":"2*x"},
+        "Q003":{"fun0":"sqrt(2*x-3)**(1/2)","fun1":"sqrt(u)","fun2":"2*x-3"},
+        "Q004":{"fun0":"log(3*x)","fun1":"log(u)","fun2":"3*x"},
+        "Q005":{"fun0":"(2*x**2-1)**7","fun1":"u**7","fun2":"2*x**2-1"},
+        "Q006":{"fun0":"(1-3*x)**8","fun1":"u**8","fun2":"1-3*x"},
+        "Q007":{"fun0":"log(sin(x))","fun1":"log(u)","fun2":"sin(x)"},
+        "Q008":{"fun0":"sin(x**2)","fun1":"sin(u)","fun2":"x**2"}
     }
 }
