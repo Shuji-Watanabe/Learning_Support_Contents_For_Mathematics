@@ -56,6 +56,15 @@ with disp_columns1_1[1]:
         qnum = tmp_f_dict[fun0]
         fun01,fun02 = f_dict[qnum]["fun1"], f_dict[qnum]["fun2"]
 
+
+fun0_latex = sy.latex(sy.sympify(fun0))
+f"""
+#### 次の関数を$~x~$で微分しなさい．  
+$$
+f(x) = {fun0_latex}
+$$
+"""
+
 x, y, u, v = sy.symbols("x,y,u,v",real=True)
 
 fun0_sym, fun1_sym, fun2_sym = sy.sympify(fun0),sy.sympify(fun01),sy.sympify(fun02)
@@ -78,20 +87,20 @@ diff_fun1_latex = diff_fun1_latex.replace("\\log{\\left(e \\right)}","")
 diff_fun2_latex = sy.latex(diff_fun2_sym)
 Ans_f_sy_latex = sy.latex(Ans_f_sym).replace("\\log{\\left(e \\right)}","")
 
+with st.expander("答え"):
+    f"""
+        $$
+        \\displaystyle
+            \\frac{{dy}}{{dx}}\
+            =\\frac{{d}}{{du}}\
+                \\left\\{{ {fun1_latex} \\right\\}}\
+                \\times\
+                \\frac{{d}}{{dx}}\
+                \\left\\{{ {fun2_latex} \\right\\}}\
+            ={diff_fun1_latex} \\times {diff_fun2_latex}
+            ={Ans_f_sy_latex}
+        $$
+    """
 
-f"""
-    $$
-    \\displaystyle
-        \\frac{{dy}}{{dx}}\
-        =\\frac{{d}}{{du}}\
-            \\left\\{{ {fun1_latex} \\right\\}}\
-            \\times\
-            \\frac{{d}}{{dx}}\
-            \\left\\{{ {fun2_latex} \\right\\}}\
-        ={diff_fun1_latex} \\times {diff_fun2_latex}
-        ={Ans_f_sy_latex}
-    $$
-"""
-
-"""---"""
+    """---"""
 

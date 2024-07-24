@@ -69,14 +69,23 @@ definite_f_result_latex = sy.latex( definite_f_exper_sym.doit() )
 indefinite_f_exper_sym  = sy.Integral(function_sym,x)
 indefinite_f_result_exper_sym  = sy.Integral(function_sym,x).doit()
 indefinite_f_result_exper_latex = sy.latex(indefinite_f_result_exper_sym )
-st.write("入力情報")
+
 f"""
-    $$\\displaystyle 
-        {definite_f_expr_latex } \
-        = \\left[ \\phantom{{\\Big[}} {indefinite_f_result_exper_latex} \\phantom{{\\Big]}}  \\right]_{{{x_ini_latex}}}^{{{x_fin_latex}}}\
-        = {definite_f_result_latex}
-    $$
+#### 問題  
+次の定積分を微分積分学の基本定理を用いて求めなさい．
+$$\\displaystyle 
+  {definite_f_expr_latex}
+$$
 """
+
+with st.expander("答え"):
+    f"""
+        $$\\displaystyle 
+            {definite_f_expr_latex } \
+            = \\left[ \\phantom{{\\Big[}} {indefinite_f_result_exper_latex} \\phantom{{\\Big]}}  \\right]_{{{x_ini_latex}}}^{{{x_fin_latex}}}\
+            = {definite_f_result_latex}
+        $$
+    """
 
 # if st.checkbox("置換積分"):
 #     disp_columns1_1_2 = st.columns([2,1,1])

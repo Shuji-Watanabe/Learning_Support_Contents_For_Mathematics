@@ -1,16 +1,24 @@
 {
-    "diff":{
-            "a":"0",
-            "x^a":"ax^{a-1}",
-            "e^x":"e^x",
-            "a^x":"a^x \\ln a",
-            "\\ln|x|":"\\frac{1}{x}",
-            "\\sin x":"\\cos x",
-            "\\cos x":"-\\sin x",
-            "\\tan x":"\\frac{1}{\\cos^2 x}\\ {\\rm or}\\ \\sec^2 x",
-            "\\sin^{-1} x":"\\frac{1}{\\sqrt{1-x^2}}",
-            "\\cos^{-1} x":"-\\frac{1}{\\sqrt{1-x^2}}",
-            "\\tan^{-1} x":"\\frac{1}{1+x^2}}"
+    "differential_calculus": {
+        "fun01":"cos(x)",
+        "fun02":"log(x,3)",
+        "fun03":"e**x",
+        "fun04":"2*x-1/(2*x)",
+        "fun05":"sin(2*x-pi/4)",
+        "fun06":"1-2*sqrt(x-1)",
+        "fun07":"e**x*sin(x)",
+        "fun08":"(x**2-2*x)/(x**3+1)",
+        "fun09":"sin(x**2)",
+        "fun10":"(1-x**2)**(1/3)",
+        "fun11":"e**(-2*x)",
+        "fun12":"x*sqrt(x)"
+    }
+    ,
+    "tline_nline":{
+        "Q001":{ "fun":"x**2","x_t":"2"},
+        "Q002":{ "fun":"x**3","x_t":"-1"},
+        "Q003":{ "fun":"1/x","x_t":"1/2"},
+        "Q004":{ "fun":"sqrt(x)","x_t":"1"}
     }
     ,
     "indefinite_integral":{
@@ -35,7 +43,7 @@
                 "Q003":{ "fun":"2*x+1","initial":0,"final":1},
                 "Q004":{ "fun":"x**2+x","initial":1,"final":3},
                 "Q005":{ "fun":"sqrt(2*x-1)","initial":1,"final":5},
-                "Q006":{ "fun":"(3*x+1)**5","initial":-1,"final":2},
+                "Q006":{ "fun":"(3*x+1)**3","initial":1,"final":2},
                 "Q007":{ "fun":"2*x-6*x**3","initial":-1,"final":3}
     }
     ,
@@ -55,7 +63,7 @@
     "composition_function":{
         "Q001":{"fun0":"sqrt(3*x+5)","fun1":"sqrt(u)","fun2":"3*x+5"},
         "Q002":{"fun0":"e**(2*x)","fun1":"e**u","fun2":"2*x"},
-        "Q003":{"fun0":"sqrt(2*x-3)**(1/2)","fun1":"sqrt(u)","fun2":"2*x-3"},
+        "Q003":{"fun0":"sqrt(2*x-3)","fun1":"sqrt(u)","fun2":"2*x-3"},
         "Q004":{"fun0":"log(3*x)","fun1":"log(u)","fun2":"3*x"},
         "Q005":{"fun0":"(2*x**2-1)**7","fun1":"u**7","fun2":"2*x**2-1"},
         "Q006":{"fun0":"(1-3*x)**8","fun1":"u**8","fun2":"1-3*x"},

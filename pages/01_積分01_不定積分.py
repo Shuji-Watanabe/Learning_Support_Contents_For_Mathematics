@@ -11,6 +11,8 @@ import json
 tmp_qlist =open("pages/data_file.json")
 tmp2_json = json.load(tmp_qlist )
 
+
+
 # Q1 -------
 """#### 不定積分の問題"""
 
@@ -38,61 +40,78 @@ with disp_columns1_1[1]:
 
 fun_sym = sy.sympify(function_str)
 fun_latex = sy.latex(fun_sym)
-st.write("積分前の関数　")
-st.markdown(f"$\\displaystyle\\ f(x)={fun_latex}$")
-with st.expander("Latex コード"):
-    st.write("\"",fun_latex,"\"")
 
-st.write("積分後の関数(デフォルト)")
-Ans_f_form = sy.Integral(fun_sym,x) 
-Ans_f_form_latex = sy.latex(Ans_f_form).replace("\\log{\\left(e \\right)}","")
-
-Ans_f = Ans_f_form.doit()
-Ans_f_latex = sy.latex(Ans_f).replace("\\log{\\left(e \\right)}","")
-st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_latex}+C$")
-with st.expander("Latex コード(デフォルト)"):
-    st.write("\"",Ans_f_latex,"+C\"")
-
-if st.checkbox("置換積分"):
-    disp_columns1_1_2 = st.columns([2,1,1])
-    with  disp_columns1_1_2[0]:
-        select_radio1_2 = st.radio( "置き換え方",("t=g(x)","作成中"),horizontal=True)
-    if select_radio1_2 == "t=g(x)":
-        with  disp_columns1_1_2[1]:
-            new_value = st.text_input("新しい変数",value="t")
-            new_value_sym = sy.Symbol(new_value)
-        with  disp_columns1_1_2[2]:
-            relation_str = st.text_input("$tと置き換える式$",value="3*x-1")
-            relation_sym = sy.sympify(relation_str)
-    Ans_f_new = Ans_f_form.transform(relation_sym ,new_value_sym)
-    Ans_f_new_latex = sy.latex(Ans_f_new).replace("\\log{\\left(e \\right)}","")
-    Ans_f_new_done = Ans_f_new.doit()
-    Ans_f_new_done_latex = sy.latex(Ans_f_new_done).replace("\\log{\\left(e \\right)}","")
-    Ans_f_replaced = Ans_f_new_done.replace(new_value_sym,relation_sym)
-    Ans_f_latex = sy.latex(Ans_f_replaced).replace("\\log{\\left(e \\right)}","")
-    st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_new_latex  }={Ans_f_new_done_latex }={Ans_f_latex}+C$")
-    with st.expander("Latex コード(デフォルト)"):
-        st.write("\"",Ans_f_latex,"+C\"")
+f"""
+#### 問題
+次の関数の不定積分を求めなさい．ただし，積分定数は$~C~$とする．
+$$
+f(x) = {fun_latex}
+$$ 
+$f(ax+b)$という形の関数を積分する場合，$~u=ax+b~$とする置換積分を行うと良い．
+"""
 
 
-if st.checkbox("計算結果の表示変更"):
-    disp_columns1_2_1 = st.columns([2,1])
-    select_radio2 = st.radio( "結果の変更",("簡略化","展開","因数分解","その他"),horizontal=True)
-    st.write("積分後の関数(簡略化)")
-    if select_radio2 == "簡略化":
-        Ans_f_simplify = sy.simplify(Ans_f,force=True)
-    elif select_radio2 == "展開":
-        Ans_f_simplify = sy.expand(Ans_f)
-    elif select_radio2 == "因数分解":
-        Ans_f_simplify = sy.factor(Ans_f)
-    elif select_radio2 == "その他":
-        Ans_f_simplify = sy.powsimp(Ans_f)
+with st.expander("答え"):
+    st.write("積分前の関数　")
+    f"""
+    $$
+        \\displaystyle\\ f(x)={fun_latex}
+    $$"""
 
-    Ans_f_simplify_latex = sy.latex(Ans_f_simplify).replace("\\log{\\left(e \\right)}","")
+    st.write("積分後の関数(デフォルト)")
+    Ans_f_form = sy.Integral(fun_sym,x) 
+    Ans_f_form_latex = sy.latex(Ans_f_form).replace("\\log{\\left(e \\right)}","")
 
-    st.markdown(f"$\\displaystyle {Ans_f_form_latex }={Ans_f_simplify_latex }+C$")
-    with st.expander("Latex コード(簡略化)"):
-        st.write("\"",Ans_f_simplify_latex,"+C\"")
+    Ans_f = Ans_f_form.doit()
+    Ans_f_latex = sy.latex(Ans_f).replace("\\log{\\left(e \\right)}","")
+    f"""  
+        $$
+        \\displaystyle {Ans_f_form_latex }={Ans_f_latex}+C
+        $$
+    """
 
-"""---"""
+    if st.checkbox("置換積分による解法"):
+        disp_columns1_1_2 = st.columns([2,1,1])
+        with  disp_columns1_1_2[0]:
+            select_radio1_2 = st.radio( "置き換え方",("t=g(x)","作成中"),horizontal=True)
+        if select_radio1_2 == "t=g(x)":
+            with  disp_columns1_1_2[1]:
+                new_value = st.text_input("新しい変数",value="t")
+                new_value_sym = sy.Symbol(new_value)
+            with  disp_columns1_1_2[2]:
+                relation_str = st.text_input("$tと置き換える式$",value="3*x-1")
+                relation_sym = sy.sympify(relation_str)
+        Ans_f_new = Ans_f_form.transform(relation_sym ,new_value_sym)
+        Ans_f_new_latex = sy.latex(Ans_f_new).replace("\\log{\\left(e \\right)}","")
+        Ans_f_new_done = Ans_f_new.doit()
+        Ans_f_new_done_latex = sy.latex(Ans_f_new_done).replace("\\log{\\left(e \\right)}","")
+        Ans_f_replaced = Ans_f_new_done.replace(new_value_sym,relation_sym)
+        Ans_f_latex = sy.latex(Ans_f_replaced).replace("\\log{\\left(e \\right)}","")
+        f"""
+        $$
+            \\displaystyle {Ans_f_form_latex }={Ans_f_new_latex  }={Ans_f_new_done_latex }={Ans_f_latex}+C
+        $$
+        """
+
+
+    if st.checkbox("計算結果の表示変更"):
+        disp_columns1_2_1 = st.columns([2,1])
+        select_radio2 = st.radio( "結果の変更",("簡略化","展開","因数分解","その他"),horizontal=True)
+        st.write("積分後の関数(簡略化)")
+        if select_radio2 == "簡略化":
+            Ans_f_simplify = sy.simplify(Ans_f,force=True)
+        elif select_radio2 == "展開":
+            Ans_f_simplify = sy.expand(Ans_f)
+        elif select_radio2 == "因数分解":
+            Ans_f_simplify = sy.factor(Ans_f)
+        elif select_radio2 == "その他":
+            Ans_f_simplify = sy.powsimp(Ans_f)
+
+        Ans_f_simplify_latex = sy.latex(Ans_f_simplify).replace("\\log{\\left(e \\right)}","")
+
+        f"""
+        $$
+            \\displaystyle {Ans_f_form_latex }={Ans_f_simplify_latex }+C
+        $$"""
+    """---"""
 
